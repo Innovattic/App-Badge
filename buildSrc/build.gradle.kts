@@ -5,7 +5,6 @@ plugins {
 }
 
 repositories {
-    // JCenter still necessary for org.jetbrains.kotlin:kotlin-compiler-embeddable:1.4.31
     jcenter()
     google()
 }
