@@ -25,6 +25,7 @@ hs_err_pid*
 /.idea/
 /.gradle/
 /buildSrc/.gradle/
+/buildSrc/build/
 
 # Local
 local.properties
