@@ -2,17 +2,18 @@ package ru.cleverpumpkin.appbadge
 
 import com.android.build.gradle.api.BaseVariant
 import com.android.builder.model.SourceProvider
+import groovy.namespace.QName
 import groovy.util.Node
 import groovy.util.NodeList
-import groovy.util.XmlParser
-import groovy.util.XmlSlurper
-import groovy.xml.QName
+import groovy.xml.XmlParser
+import groovy.xml.XmlSlurper
 import groovy.xml.XmlUtil
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.ConfigurableFileTree
 import org.gradle.api.file.FileCollection
 import org.gradle.api.tasks.TaskAction
 import ru.cleverpumpkin.appbadge.filter.AppBadgeFilter
+import ru.cleverpumpkin.appbadge.utils.AppBadgeException
 import ru.cleverpumpkin.appbadge.utils.ImageWriter
 import ru.cleverpumpkin.appbadge.utils.ProjectUtils
 import ru.cleverpumpkin.appbadge.utils.ResourceUtils
@@ -67,15 +68,22 @@ open class GenerateIconsTask @Inject constructor(
         
         // XML is an adaptive icon, specifying a background and foreground layer
         val xml = XmlParser().parse(inputFile)
-        
-        val fg = (xml["foreground"] as NodeList)[0] as Node
+
+        val foregroundNodeList = xml["foreground"] as? NodeList
+            ?: throw AppBadgeException("NodeList at 'foreground' not found")
+        val foregroundNode = foregroundNodeList.firstOrNull() as? Node
+            ?: throw AppBadgeException("Foreground NodeList is empty")
+
         val drawableAttr = QName("http://schemas.android.com/apk/res/android", "drawable")
 
         // We replace the foreground drawable with a generated layer-list drawable,
         // containing (1) the original (vector) icon, and (2) the overlay.
-        val newResName = createOverlayedDrawable(fg.attributes().get(drawableAttr) as String, inputFile.parentFile)
-        fg.attributes().put(drawableAttr, newResName)
-        
+        val attributes = foregroundNode.attributes()
+        val originalResId = attributes[drawableAttr] as? String
+            ?: throw AppBadgeException("Foreground drawable not found")
+        val newResName = createOverlayedDrawable(originalResId, inputFile.parentFile)
+        attributes[drawableAttr] = newResName
+
         val outputFile = File(outputDir, "${inputFile.parentFile.name}/${inputFile.name}")
         outputFile.parentFile.mkdirs()
         outputFile.writeText(XmlUtil.serialize(xml))

@@ -15,7 +15,7 @@ dependencies {
     implementation(BuildScriptPlugins.android)
 }
 
-group = Plugins.appBadge
+//group = Plugins.appBadge
 
 // Add info for publication to plugin portal.
 pluginBundle {
