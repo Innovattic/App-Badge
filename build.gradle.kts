@@ -27,11 +27,11 @@ subprojects {
         extensions
             .findByType(TestedExtension::class.java)
             ?.apply {
-                compileSdkVersion(31)
+                compileSdkVersion(30)
 
                 defaultConfig {
-                    //minSdkVersion(21)
-                    //targetSdkVersion(31)
+                    minSdk = 21
+                    targetSdk = 30
                     versionCode = 1
                     versionName = Versions.projectVersion
                 }
