@@ -1,6 +1,7 @@
 plugins {
     id("com.gradle.plugin-publish") version "0.10.0"
     `kotlin-dsl`
+    `maven-publish`
 }
 
 repositories {
