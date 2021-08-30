@@ -14,11 +14,5 @@
 
 /plugin/build/
 
-/sample/build/
-
-/sample-library/build/
-
-/sample-library-groovy/build/
-
 # Local
 local.properties
