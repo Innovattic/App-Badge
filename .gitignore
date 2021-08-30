@@ -18,5 +18,7 @@
 
 /sample-library/build/
 
+/sample-library-groovy/build/
+
 # Local
 local.properties
