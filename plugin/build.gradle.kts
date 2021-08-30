@@ -1,7 +1,6 @@
 plugins {
     id("com.gradle.plugin-publish") version "0.10.0"
     `kotlin-dsl`
-    `maven-publish`
 }
 
 repositories {
@@ -16,15 +15,6 @@ dependencies {
 }
 
 group = Plugins.appBadge
-
-// Upload archive to rootProject/plugin/badgeRepo folder to test plugin locally.
-//tasks.named<Upload>("uploadArchives") {
-//    repositories.withGroovyBuilder {
-//        "mavenDeployer" {
-//            "repository"("url" to "file://pluginRepo")
-//        }
-//    }
-//}
 
 // Add info for publication to plugin portal.
 pluginBundle {

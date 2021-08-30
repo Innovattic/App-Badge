@@ -5,7 +5,8 @@ buildscript {
         jcenter()
         google()
         mavenCentral()
-        maven(uri("plugin/pluginRepo"))
+        // Local maven for testing our plugin when published locally
+        mavenLocal()
     }
     dependencies {
         classpath(BuildScriptPlugins.kotlin)
