@@ -10,7 +10,7 @@ buildscript {
     dependencies {
         classpath(BuildScriptPlugins.kotlin)
         classpath(BuildScriptPlugins.android)
-        classpath(BuildScriptPlugins.appBadge)
+        //classpath(BuildScriptPlugins.appBadge)
     }
 }
 
@@ -27,12 +27,11 @@ subprojects {
         extensions
             .findByType(TestedExtension::class.java)
             ?.apply {
-                compileSdkVersion(28)
-                buildToolsVersion("28.0.3")
+                compileSdkVersion(31)
 
                 defaultConfig {
-                    minSdkVersion(21)
-                    targetSdkVersion(28)
+                    //minSdkVersion(21)
+                    //targetSdkVersion(31)
                     versionCode = 1
                     versionName = Versions.projectVersion
                 }

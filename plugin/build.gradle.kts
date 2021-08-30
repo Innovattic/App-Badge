@@ -1,7 +1,7 @@
 plugins {
     id("com.gradle.plugin-publish") version "0.10.0"
     `kotlin-dsl`
-    maven
+    `maven-publish`
 }
 
 repositories {
@@ -15,16 +15,16 @@ dependencies {
     implementation(BuildScriptPlugins.android)
 }
 
-//group = Plugins.appBadge
+group = Plugins.appBadge
 
-// Upload archive to rootProject/plugin/badgeRepo folder to test plugin locale.
-tasks.named<Upload>("uploadArchives") {
-    repositories.withGroovyBuilder {
-        "mavenDeployer" {
-            "repository"("url" to "file://pluginRepo")
-        }
-    }
-}
+// Upload archive to rootProject/plugin/badgeRepo folder to test plugin locally.
+//tasks.named<Upload>("uploadArchives") {
+//    repositories.withGroovyBuilder {
+//        "mavenDeployer" {
+//            "repository"("url" to "file://pluginRepo")
+//        }
+//    }
+//}
 
 // Add info for publication to plugin portal.
 pluginBundle {
