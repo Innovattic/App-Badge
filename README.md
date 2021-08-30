@@ -100,12 +100,16 @@ badge {
 }
 ```
 
+# Sample
+You can find the sample in a separate repo.
+
 # Development
 
 To test the plugin, you first need to locally publish the plugin.
 Run: `./gradlew publishToMavenLocal`
 This will publish the plugin to the local `/.m2` folder on your machine.
-The root `build.gradle` already declares the `mavenLocal` repository, which will read from this `/.m2` folder.
+Add the `mavenLocal` repository to a client project to test this local version,
+which will read from this `/.m2` folder.
 
 Every time you change the plugin, you need to re-run `./gradlew publishToMavenLocal` in order to update the
 version of the plugin published locally on your machine.

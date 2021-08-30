@@ -15,7 +15,7 @@ dependencies {
     implementation(BuildScriptPlugins.android)
 }
 
-//group = Plugins.appBadge
+group = Plugins.appBadgeId
 
 // Add info for publication to plugin portal.
 pluginBundle {
@@ -30,7 +30,7 @@ pluginBundle {
 gradlePlugin {
     plugins {
         create("appBadgePlugin") {
-            id = Plugins.appBadge
+            id = Plugins.appBadgeId
             displayName = "App Badge Generator"
             version = Versions.projectVersion
             implementationClass = "ru.cleverpumpkin.appbadge.AppBadgePlugin"
