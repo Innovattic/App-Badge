@@ -10,5 +10,5 @@ object BuildScriptPlugins {
 }
 
 object Plugins {
-    const val appBadgeId = "ru.cleverpumpkin.badge"
+    const val appBadgeId = "com.innovattic.badge"
 }
