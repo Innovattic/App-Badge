@@ -3,18 +3,18 @@ Gradle Plugin for adding a badge with version to app icons
 ![alt text](img/ic_launcher_round.png)
 
 # Compatibility
-Gradle 5.1.1
+Gradle 7.0.2
 
-Android Gradle Plugin 3.3.
+Android Gradle Plugin 7.0.1.
 # How to add
 Add this to your project's **build.gradle**
 ```
 buildscript {
     repositories {
-        gradlePluginPortal()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath "gradle.plugin.app-badge:plugin:1.0.3"
+        implementation 'com.github.Innovattic:App-Badge:TAG'
     }
 }
 ```
@@ -101,7 +101,8 @@ badge {
 ```
 
 # Sample
-You can find the sample in a separate repo.
+You can find the sample in a separate repo:
+https://github.com/Innovattic/App-Badge-Sample
 
 # Development
 
@@ -118,5 +119,9 @@ version of the plugin published locally on your machine.
 Sergey Chuprin - <gregamer@gmail.com>
 ## Maintained by
 CleverPumpkin – https://cleverpumpkin.ru
+## With contributions from
+Innovattic - https://www.innovattic.com/
 
-https://plugins.gradle.org/plugin/ru.cleverpumpkin.badge
+Nathan Bruning
+
+Luke Needham
