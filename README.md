@@ -20,7 +20,7 @@ buildscript {
 ```
 Then apply plugin in your app's **build.gradle**
 ```
-apply plugin: "ru.cleverpumpkin.badge"
+apply plugin: "com.innovattic.badge"
 ```
 
 # Configuration
