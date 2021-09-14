@@ -1,7 +1,7 @@
 plugins {
     id("com.gradle.plugin-publish") version "0.10.0"
     `kotlin-dsl`
-    maven
+    `maven-publish`
 }
 
 repositories {
@@ -15,16 +15,7 @@ dependencies {
     implementation(BuildScriptPlugins.android)
 }
 
-//group = Plugins.appBadge
-
-// Upload archive to rootProject/plugin/badgeRepo folder to test plugin locale.
-tasks.named<Upload>("uploadArchives") {
-    repositories.withGroovyBuilder {
-        "mavenDeployer" {
-            "repository"("url" to "file://pluginRepo")
-        }
-    }
-}
+group = Plugins.appBadgeId
 
 // Add info for publication to plugin portal.
 pluginBundle {
@@ -39,7 +30,7 @@ pluginBundle {
 gradlePlugin {
     plugins {
         create("appBadgePlugin") {
-            id = Plugins.appBadge
+            id = Plugins.appBadgeId
             displayName = "App Badge Generator"
             version = Versions.projectVersion
             implementationClass = "ru.cleverpumpkin.appbadge.AppBadgePlugin"

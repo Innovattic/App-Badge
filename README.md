@@ -3,24 +3,24 @@ Gradle Plugin for adding a badge with version to app icons
 ![alt text](img/ic_launcher_round.png)
 
 # Compatibility
-Gradle 5.1.1
+Gradle 7.0.2
 
-Android Gradle Plugin 3.3.
+Android Gradle Plugin 7.0.1.
 # How to add
 Add this to your project's **build.gradle**
 ```
 buildscript {
     repositories {
-        gradlePluginPortal()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath "gradle.plugin.app-badge:plugin:1.0.3"
+        implementation 'com.github.Innovattic:App-Badge:TAG'
     }
 }
 ```
 Then apply plugin in your app's **build.gradle**
 ```
-apply plugin: "ru.cleverpumpkin.badge"
+apply plugin: "com.innovattic.badge"
 ```
 
 # Configuration
@@ -100,9 +100,28 @@ badge {
 }
 ```
 
-# Developed by 
-Sergey Chuprin - <gregamer@gmail.com>
-# Maintained by
-CleverPumpkin – https://cleverpumpkin.ru
+# Sample
+You can find the sample in a separate repo:
+https://github.com/Innovattic/App-Badge-Sample
 
-https://plugins.gradle.org/plugin/ru.cleverpumpkin.badge
+# Development
+
+To test the plugin, you first need to locally publish the plugin.
+Run: `./gradlew publishToMavenLocal`
+This will publish the plugin to the local `/.m2` folder on your machine.
+Add the `mavenLocal` repository to a client project to test this local version,
+which will read from this `/.m2` folder.
+
+Every time you change the plugin, you need to re-run `./gradlew publishToMavenLocal` in order to update the
+version of the plugin published locally on your machine.
+
+## Developed by
+Sergey Chuprin - <gregamer@gmail.com>
+## Maintained by
+CleverPumpkin – https://cleverpumpkin.ru
+## With contributions from
+Innovattic - https://www.innovattic.com/
+
+Nathan Bruning
+
+Luke Needham
