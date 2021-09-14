@@ -10,9 +10,8 @@
 # Modules:
 
 /buildSrc/.gradle/
-/buildSrc/build/
 
-/plugin/build/
+build/
 
 # Local
 local.properties
