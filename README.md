@@ -14,7 +14,7 @@ buildscript {
         maven { url 'https://jitpack.io' }
     }
     dependencies {
-        implementation 'com.github.Innovattic:App-Badge:TAG'
+        classpath 'com.github.Innovattic:App-Badge:TAG'
     }
 }
 ```
