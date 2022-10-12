@@ -110,7 +110,18 @@ To test the plugin, you first need to locally publish the plugin.
 Run: `./gradlew publishToMavenLocal`
 This will publish the plugin to the local `/.m2` folder on your machine.
 Add the `mavenLocal` repository to a client project to test this local version,
-which will read from this `/.m2` folder.
+which will read from this `/.m2` folder. To use the local version, declare your dependency as:
+
+```
+buildscript {
+    repositories {
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'com.innovattic.badge:com.innovattic.badge.gradle.plugin:TAG'
+    }
+}
+```
 
 Every time you change the plugin, you need to re-run `./gradlew publishToMavenLocal` in order to update the
 version of the plugin published locally on your machine.
@@ -118,10 +129,9 @@ version of the plugin published locally on your machine.
 ## Developed by
 Sergey Chuprin - <gregamer@gmail.com>
 ## Maintained by
-CleverPumpkin – https://cleverpumpkin.ru
+Innovattic – https://www.innovattic.com/
 ## With contributions from
 Innovattic - https://www.innovattic.com/
 
-Nathan Bruning
-
-Luke Needham
+- Nathan Bruning
+- Luke Needham

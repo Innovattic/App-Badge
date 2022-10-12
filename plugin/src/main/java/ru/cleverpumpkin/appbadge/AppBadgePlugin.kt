@@ -22,23 +22,6 @@ import java.io.File
 @Suppress("unused")
 class AppBadgePlugin : Plugin<Project> {
 
-    init {
-        System.setProperty("java.awt.headless", "true")
-        try {
-            Class.forName(System.getProperty("java.awt.graphicsenv"))
-        } catch (e: ClassNotFoundException) {
-            System.err.println("[WARN] java.awt.graphicsenv: $e")
-            System.setProperty("java.awt.graphicsenv", "sun.awt.CGraphicsEnvironment")
-        }
-
-        try {
-            Class.forName(System.getProperty("awt.toolkit"))
-        } catch (e: ClassNotFoundException) {
-            System.err.println("[WARN] awt.toolkit: $e")
-            System.setProperty("awt.toolkit", "sun.lwawt.macosx.LWCToolkit")
-        }
-    }
-
     override fun apply(project: Project) {
         with(project) {
             extensions.add(PluginExtension.NAME, PluginExtension::class.java)

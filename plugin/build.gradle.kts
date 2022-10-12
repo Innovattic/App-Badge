@@ -5,7 +5,6 @@ plugins {
 }
 
 repositories {
-    jcenter()
     google()
     mavenCentral()
 }
@@ -13,6 +12,16 @@ repositories {
 dependencies {
     implementation(gradleApi())
     implementation(BuildScriptPlugins.android)
+}
+
+// Make sure we're compatible with Java 1.8 and higher, even if we're building on a newer java version
+tasks.withType<JavaCompile>().configureEach {
+    options.release.set(8)
+}
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 group = Plugins.appBadgeId

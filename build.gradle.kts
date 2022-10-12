@@ -1,8 +1,5 @@
-import com.android.build.gradle.TestedExtension
-
 buildscript {
     repositories {
-        jcenter()
         google()
         mavenCentral()
     }
@@ -14,7 +11,6 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
         google()
         mavenCentral()
     }
