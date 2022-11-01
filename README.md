@@ -1,15 +1,18 @@
 Gradle Plugin for adding a badge with version to app icons
 
-![alt text](img/ic_launcher_round.png)
+Example:
 
-[![Release](https://jitpack.io/v/Innovattic/App-Badge.svg)]
-(https://jitpack.io/#Innovattic/App-Badge)
+![alt text](img/ic_launcher_round.png)
 
 # Compatibility
 Gradle 7.0.2
 
 Android Gradle Plugin 7.0.1.
+
 # How to add
+
+[![Release](https://jitpack.io/v/Innovattic/App-Badge.svg)](https://jitpack.io/#Innovattic/App-Badge)
+
 Add this to your project's **build.gradle**
 ```
 buildscript {
