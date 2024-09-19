@@ -1,7 +1,6 @@
 plugins {
-    id("com.gradle.plugin-publish") version "0.10.0"
+    id("com.gradle.plugin-publish") version "1.3.0"
     `kotlin-dsl`
-    `maven-publish`
 }
 
 repositories {
@@ -16,25 +15,16 @@ dependencies {
 
 // Make sure we're compatible with Java 1.8 and higher, even if we're building on a newer java version
 tasks.withType<JavaCompile>().configureEach {
-    sourceCompatibility = "1.8"
-    targetCompatibility = "1.8"
+    sourceCompatibility = "11"
+    targetCompatibility = "11"
 }
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 
 group = Plugins.appBadgeId
-
-// Add info for publication to plugin portal.
-pluginBundle {
-    vcsUrl = "https://github.com/CleverPumpkin/App-Badge"
-    website = "https://github.com/CleverPumpkin/App-Badge"
-    description = "This is an Android gradle plugin that allows you to overlay " +
-            "text on top of an android application\'s icon"
-    tags = listOf("android", "icon", "generator", "badge", "label", "version")
-}
 
 // Create plugin itself.
 gradlePlugin {

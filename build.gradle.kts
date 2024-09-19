@@ -4,8 +4,6 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath(BuildScriptPlugins.kotlin)
-        classpath(BuildScriptPlugins.android)
     }
 }
 
@@ -17,5 +15,5 @@ allprojects {
 }
 
 tasks.register("clean", Delete::class.java) {
-    delete(rootProject.buildDir)
+    delete(rootProject.layout.buildDirectory)
 }
